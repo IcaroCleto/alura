@@ -11,3 +11,6 @@ Exemplo: Nomedaclasse.prototype.nomedometodo
 
 Quando se usa um this em uma função não da para saber quem é esse this.
 Quando for usado o this em um objeto tem que ser usado o operador new na criação desse objeto.
+
+Sempre usar redirect após um POST.
+"Always redirect after post."
