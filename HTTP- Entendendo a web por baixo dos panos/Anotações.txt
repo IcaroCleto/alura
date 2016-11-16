@@ -1,0 +1,18 @@
+Chaves
+Chave publica usada para criptografar 
+Chave privada usada para descriptografar
+
+Porta padrão do https: 443
+Porta padrão do http: 80
+
+Códigos de resposta:
+Status 200 = OK
+Status 301 = Página movida para outro lugar
+Status 302 = Página encontrada
+Status 404 = Não encontrado
+Status 500 = Erro no processamento
+
+GET - Envia os parâmetros na URL. (Objetivo: Receber dados).
+POST - Envia os parâmetros no corpo da requisição. (Objetivo: Submeter dados).
+DELETE - Apagar um recurso
+PUT - Atualizar um recurso

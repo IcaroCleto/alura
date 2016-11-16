@@ -1,0 +1,13 @@
+Iniciar projeto em node
+npm init
+
+
+Funções anonimas:
+São funções criadas sem nome e guardadas em variaveis.
+
+Prototype: É uma propriedade para você adicionar coisas na estrutura da classe.
+Exemplo: Nomedaclasse.prototype.nomedometodo
+
+
+Quando se usa um this em uma função não da para saber quem é esse this.
+Quando for usado o this em um objeto tem que ser usado o operador new na criação desse objeto.
