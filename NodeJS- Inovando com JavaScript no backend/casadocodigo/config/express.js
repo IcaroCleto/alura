@@ -1,6 +1,7 @@
 var express = require('express'); // Carrega o modulo do express
 var load = require('express-load') //  
 var bodyParser = require('body-parser');
+var expressValidator = require('express-validator');
 
 module.exports = function (){   
 
@@ -9,7 +10,9 @@ module.exports = function (){
     app.set('view engine','ejs'); // Configura o engine de layout
     app.set('views','./app/views'); //Configura onde o express busca as views. OBS: A posição é baseada da onde o servidor sobe ou seja App.js.
 
-    app.use(bodyParser.urlencoded({extend: true}));
+    app.use(bodyParser.urlencoded({extended: true}));
+    app.use(bodyParser.json());
+    app.use(expressValidator());
 
     load('routes', {cwd: 'app'}) // Carrega todos os arquivos dentro de rotas.
         .then('infra') // Então carrega todos os arquivos dentro de infra.
