@@ -1,43 +1,39 @@
-var tdPeso1 = document.getElementById("peso-1"); // Resultado: <td class="info-peso" id="peso-2">100</td>
-var tdAltura1 = document.getElementById("altura-1");
+// var tdPeso1 = document.getElementById("peso-1"); // Resultado: <td class="info-peso" id="peso-2">100</td>
+// var tdAltura1 = document.getElementById("altura-1");
 
-// Criação de um Objeto
-var paciente1 = {
-    "peso": tdPeso1.textContent,
-    "altura": tdAltura1.textContent
-};
+// // Criação de um Objeto
+// var paciente1 = {
+//     "peso": tdPeso1.textContent,
+//     "altura": tdAltura1.textContent
+// };
 
-var tdPeso2 = document.getElementById("peso-2"); // Resultado: <td class="info-peso" id="peso-2">100</td>
-var tdAltura2 = document.getElementById("altura-2");
+// var tdPeso2 = document.getElementById("peso-2"); // Resultado: <td class="info-peso" id="peso-2">100</td>
+// var tdAltura2 = document.getElementById("altura-2");
 
-// Criação de um Objeto
-var paciente2 = {
-    "peso": tdPeso2.textContent,
-    "altura": tdAltura2.textContent
-};
+// // Criação de um Objeto
+// var paciente2 = {
+//     "peso": tdPeso2.textContent,
+//     "altura": tdAltura2.textContent
+// };
 
-//Coleção, array ou vetor são sinônimos.
-var pacientes = [paciente1, paciente2];
+// //Coleção, array ou vetor são sinônimos.
+// var pacientes = [paciente1, paciente2];
 
-var posicaoAtual = 0;
+var botao = document.getElementById("calcula-imcs");
 
-while (posicaoAtual <= pacientes.length - 1) {
+botao.addEventListener("click", function(){
+    var trsPacientes = document.getElementsByClassName("paciente");
 
-    var paciente = pacientes[posicaoAtual];
+    percorreArray(trsPacientes, imprimeEModificaTdDeImc);
 
-    if (paciente.altura != 0) {
-        var imc = paciente.peso / (paciente.altura * paciente.altura);
+    function imprimeEModificaTdDeImc(pacienteTr) {
 
-        // var tdImc = document.getElementById("imc-2");
-        // tdImc.textContent = imc;
+        var pacienteAtual = montaPaciente(pacienteTr);
+        var imc = pacienteAtual.pegaImc();
+
+        var tdImc = pacienteTr.getElementsByClassName("info-imc")[0];
+        tdImc.textContent = imc;
 
         console.log(imc);
-
-    } else {
-        console.log("Não posso executar uma divisão por 0!");
     }
-    posicaoAtual++;
-}
-
-
-
+});

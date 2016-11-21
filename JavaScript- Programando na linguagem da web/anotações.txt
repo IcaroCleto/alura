@@ -1,2 +1,5 @@
 O JS é uma linguagem implicitamente tipada = as váriaveis tem tipo, mas não é preciso declarar esse tipo. Pq o proprio JS descobre.
 
+A palavra reservada "This" representa o objeto onde vc está chamando a função.
+
+Cidadão de primeira classe: uma função que pode ser passada como argumento.
