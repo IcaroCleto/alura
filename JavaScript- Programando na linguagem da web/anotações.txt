@@ -1,0 +1,2 @@
+O JS é uma linguagem implicitamente tipada = as váriaveis tem tipo, mas não é preciso declarar esse tipo. Pq o proprio JS descobre.
+
