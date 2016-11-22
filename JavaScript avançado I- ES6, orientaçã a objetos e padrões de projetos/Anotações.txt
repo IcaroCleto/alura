@@ -1,0 +1,3 @@
+_propriedade = é uma convenção que indica que essa propriedade só pode ser acessada de dentro da classe.
+
+let é igual a var, com a diferença que o let faz um escopo de bloco, evitando assim que as variaveis vazem para o escopo global.
