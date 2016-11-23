@@ -1,0 +1,3 @@
+angular expression é uma lacuna no template do site, essa lacuna é representada por {{}}
+
+$scope serve para o controller disponibilizar dados para a view.
