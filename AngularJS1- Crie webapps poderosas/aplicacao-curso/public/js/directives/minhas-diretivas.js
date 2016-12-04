@@ -1,21 +1,21 @@
 angular.module('minhasDiretivas', [])
-	.directive('meuPainel', function() {
+    .directive('meuPainel', function () {
 
-		var ddo = {};
+        var ddo = {};
 
-		ddo.restrict = "AE";
+        ddo.restrict = "AE";
         ddo.transclude = true;
 
 
-		ddo.scope = {
+        ddo.scope = {
             titulo: '@' // O @ Só copia o q tiver no value da diretiva com esse nome
         };
 
         ddo.templateUrl = 'js/directives/meu-painel.html';
 
-		return ddo;
-	})
-    .directive('minhaFoto', function() {
+        return ddo;
+    })
+    .directive('minhaFoto', function () {
 
         var ddo = {};
 
@@ -26,11 +26,11 @@ angular.module('minhasDiretivas', [])
             url: '@'
         };
 
-        ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';           
-        
+        ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';
+
         return ddo;
     })
-    .directive('meuBotaoPerigo', function(){
+    .directive('meuBotaoPerigo', function () {
         var ddo = {}
 
         ddo.restrict = "E";
@@ -40,7 +40,24 @@ angular.module('minhasDiretivas', [])
             acao: '&' // Passa uma expressão como por exemplo uma função.
         };
 
-        ddo.template ='<button ng-click="acao(foto)" class="btn btn-danger btn-block">{{nome}}</button>';
+        ddo.template = '<button ng-click="acao(foto)" class="btn btn-danger btn-block">{{nome}}</button>';
 
         return ddo;
-    });
+    })
+    .directive('meuFocus', function () {
+        var ddo = {}
+
+        ddo.restrict = "A";
+
+        // ddo.scope = {
+        //     focado: '=' // O controller e a diretiva fica sabendo o valor do focado.
+        // };
+
+        ddo.link = function (scope, element) {
+            scope.$on('fotoCadastrada', function(){
+                element[0].focus();
+            });
+        }
+
+        return ddo;
+    })
