@@ -1,16 +1,32 @@
-angular.module("minhasDiretivas", []).directive('meuPainel', function(){
-    var ddo = {}; // Directive definition object
+angular.module('minhasDiretivas', [])
+	.directive('meuPainel', function() {
 
-    ddo.restric = "AE"; // Indica que o ddo pode ser usado como Atribute ou Element
+		var ddo = {};
 
-    ddo.scope = {
-        titulo: '@'
-    };
+		ddo.restrict = "AE";
+        ddo.transclude = true;
 
-    ddo.transclude = true;
 
-    ddo.templateUrl = 'js/directives/meu-painel.html'
+		ddo.scope = {
+            titulo: '@'
+        };
 
-    return ddo;
+        ddo.templateUrl = 'js/directives/meu-painel.html';
 
-});
+		return ddo;
+	})
+    .directive('minhaFoto', function() {
+
+        var ddo = {};
+
+        ddo.restrict = "AE";
+
+        ddo.scope = {
+            titulo: '@',
+            url: '@'
+        };
+
+        ddo.template = '<img class="img-responsive center-block" src="{{url}}" alt="{{titulo}}">';           
+        
+        return ddo;
+    });
