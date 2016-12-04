@@ -1,6 +1,6 @@
 angular.module('alurapic').controller('FotosController', function ($scope, $http) {
 
-    $scope.fotos = [];
+    $scope.fotos = {};
     $scope.filtro = '';
 
     /* FAZ O MESMO QUE O CÓDIGO DE BAIXO, MAS DE FORMA MAIS SIMPLES*/
