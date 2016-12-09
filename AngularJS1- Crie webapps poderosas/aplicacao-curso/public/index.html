@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <base href="/"> <!-- Tag para fazer o locationProvider funcionar, troca a base de # por / na url -->
     <meta name="viewport" content="width=device-width">
     <title>Alurapic</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
@@ -13,34 +14,15 @@
     <!-- importando o módulo ngAnimte -->
 
     <script src="js/lib/angular-animate.min.js"></script>
+    <script src="js/lib/angular-route.min.js"></script>
     <script src="js/main.js"></script>
     <script src="js/controllers/fotos-controller.js"></script>
     <script src="js/directives/minhas-diretivas.js"></script>
 </head>
 
-<body ng-controller="FotosController">
+<body>
     <div class="container">
-        <div class="jumbotron">
-            <h1 class="text-center">Alurapic</h1>
-        </div>
-
-        <!-- novidade, a row com o campo de busca -->
-        <div class="row">
-            <div class="col-md-12">
-                <form>
-                    <input class="form-control" placeholder="filtrar pelo título da foto" ng-model="filtro" ng-model-options="{ debounce: 500 }">
-                </form>
-            </div>
-            <!-- fim col-md-12 -->
-        </div>
-        <!-- fim row -->
-
-        <div class="row">
-            <meu-painel class="col-md-2 painel-animado" ng-repeat="foto in fotos | filter: filtro" titulo="{{foto.titulo}}">
-                <img class="img-responsive center-block" src="{{foto.url}}" alt="{{foto.titulo}}">
-            </meu-painel>
-        </div>
-        <!-- fim row -->
+        <ng-view></ng-view>
     </div>
     <!-- fim container -->
 </body>
