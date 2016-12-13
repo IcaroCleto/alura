@@ -8,7 +8,7 @@ module.exports = function (){
     var app = express();
 
     app.set('view engine','ejs'); // Configura o engine de layout
-    app.set('views','./app/views'); //Configura onde o express busca as views. OBS: A posição é baseada da onde o servidor sobe ou seja App.js.
+    app.set('views','./app/views'); //Configura onde o express busca as views. OBS: A posição é baseada da onde o servidor está ou seja App.js.
 
     app.use(bodyParser.urlencoded({extended: true}));
     app.use(bodyParser.json());
