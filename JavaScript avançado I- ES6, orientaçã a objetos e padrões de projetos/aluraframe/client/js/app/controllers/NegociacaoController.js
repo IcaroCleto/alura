@@ -11,8 +11,18 @@ class NegociacaoController {
 
         event.preventDefault(); // Cancela o evento do botão
 
-        let data = new Date(this._inputData.value.slipt('-'));
-        console.log(data);
+        let data = new Date(
+            ...this._inputData.value
+                .split('-') // Ele entende que esse array tem q ser desmembrado.
+                .map((item, indice) => item - indice % 2) // Arrow function, mais informações no bloco de Anotações.
+        );
 
+        let negociacao = new Negociacao(
+            data,
+            this._inputQuantidade.value,
+            this._inputValor.value
+        );
+
+        console.log(negociacao);
     }
 }
