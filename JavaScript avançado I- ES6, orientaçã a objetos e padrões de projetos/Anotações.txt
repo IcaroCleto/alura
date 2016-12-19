@@ -9,3 +9,11 @@ arrow function =
 4 - Já faz o retorno da operação, não precisa usar a palavra reservada return.
 
 Spread operator = Permite passar um array como parametro para uma função, desmembrando o array.
+
+Metodos Static = são metódos invocados diretamente na classe
+Exemplo: Uma classe chamada Calcula{} tem o metódo static calcSomar(), entao se precisar usar em outra classe é só chamar Calcula.calcSomar() ao invés
+de ter que criar uma instância da classe.
+
+Fail fast = É quando se passa algo inválido para o método ele já mostra a falha.
+
+Definição do template string = `Mostrar a ${variavel}`
