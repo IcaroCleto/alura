@@ -1,0 +1,31 @@
+Collections são como as tabelas.
+
+Cria a coleção - db.creatCollection("nome_da_coleção") 
+
+Insere um registro na coleção - db.nome_da_coleção.insert({
+	"propriedade":"valor",
+	"propriedade1":"valor1"
+	"objeto" : {
+		"propriedade" : "valor"
+	}
+	"array" : [
+		{
+			"nome": "inglês"
+			"nível": "avançado"
+		},
+		{
+			"nome": "boxe"
+			"nível": "basico"
+		}
+	]
+
+})
+
+Busca todos os registros na coleção - db.nome_da_coleção.find()
+
+Remove um registro de uma coleção - db.nome_da_coleção.remove({
+	"_id" : ObjectId("58611541e5536267965f2e4a")	
+})
+
+Vantagem de usar mongo:
+Pode se adicionar campos à estrutura da coleção.
