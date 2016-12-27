@@ -45,3 +45,30 @@
         }
     ]
 }
+
+
+-- BUSCANDO COM OPERADOR --
+-- OR --
+db.alunos.find({
+    $or: [
+        {"curso.nome" : "Sistemas de informação"},
+        {"curso.nome" : "Engenharia Química"}
+    ]
+})
+
+-- AND --
+db.alunos.find({
+    $or: [
+        {"curso.nome" : "Sistemas de informação"},
+        {"curso.nome" : "Engenharia Química"}
+        {"curso.nome" : "Curso de Moda"}
+    ],
+    "nome" : "Daniela"
+})
+
+-- in --
+db.alunos.find({
+        "curso.nome" : { 
+            $in : ["Sistemas de informação", "Engenharia Química"] -- Busca alunos que estão em Sistemas de Informação ou Engenharia Química.
+            }
+})

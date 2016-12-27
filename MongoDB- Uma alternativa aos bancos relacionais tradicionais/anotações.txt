@@ -22,6 +22,10 @@ Insere um registro na coleção - db.nome_da_coleção.insert({
 })
 
 Busca todos os registros na coleção - db.nome_da_coleção.find()
+Mostra os registros de forma legivel - db.nome_da_coleção.find().pretty()
+
+Busca registros com parametros - db.nome_da_coleção.find({""nome" : "Felipe"})
+Busca registros com parametros e entrando nas camadas do documento - db.nome_da_coleção.find({""nome" : "Felipe", "habilidades.nome" : "inglês"})
 
 Remove um registro de uma coleção - db.nome_da_coleção.remove({
 	"_id" : ObjectId("58611541e5536267965f2e4a")	
