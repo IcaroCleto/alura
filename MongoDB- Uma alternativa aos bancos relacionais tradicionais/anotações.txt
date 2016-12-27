@@ -33,3 +33,5 @@ Remove um registro de uma coleção - db.nome_da_coleção.remove({
 
 Vantagem de usar mongo:
 Pode se adicionar campos à estrutura da coleção.
+
+Update no MongoDB: Se vc não usar operadores no update do mongo, ele não apenas atualiza ele substitui o antigo JSON pelo novo.
