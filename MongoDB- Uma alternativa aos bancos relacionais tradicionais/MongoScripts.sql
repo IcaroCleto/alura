@@ -83,6 +83,26 @@ db.alunos.find({
             }
 })
 
+-- GT --
+-- GT = Greater than = maior que --
+db.alunos.find({
+    "notas" : {$gt : 5}
+})
+
+-- Buscando apenas um elemento --
+db.alunos.findOne({
+    notas : {$gt : 5}
+})
+
+-- Buscando elementos por ordem alfabetica de forma crescente --
+db.alunos.find().sort({"nome" : 1})
+
+-- Buscando elementos por ordem alfabetica de forma de decrescente --
+db.alunos.find().sort({"nome" : -1})
+
+-- Buscando elementos por ordem alfabetica de forma de crescente e limitando o resultado --
+db.alunos.find().sort({"nome" : 1}).limit(3)
+
 
 -- UPDATE --
 -- Update no MongoDB: Se vc não usar operadores no update do mongo, ele não apenas atualiza o documento, ele substitui o antigo documento pelo novo.
@@ -138,3 +158,43 @@ db.alunos.update(
 
 -- REMOVE --
 db.alunos.remove({"_id" : ObjectId("129301293012")})
+
+-- LOCALIZAÇÃO COM MONGODB --
+db.alunos.insert(
+    {"_id" : ObjectId("029zsad0a9sd0123cd")},
+    {
+        $set : {
+            localizacao : {
+                endereco : "Rua Vergueiro, 3185",
+                cidade : "São Paulo",
+                pais : "Brasil",
+                coordinates : [-23.588213, -46.632356],
+                type : "Point"
+            }
+        }
+    })
+
+-- Comando Import --
+mongoimport -c alunos --jsonArray < alunos.json
+
+-- PESQUISA GEOGRAFICA COM MONGODB --
+db.alunos.aggregate([ -- Traz a coleção inteira
+    {
+        $geoNear : { -- e usa a proximidade para fazer a agregação
+            near : {
+                coordinates: [-23.5640265, -46.6527128],
+                type: "Point"
+            },
+            distanceField : "distancia.calculada", -- Coloca o resultado do calculo de distancia dentro de distancia.calculada
+            spherical : true -- andar pela esfera para calcular os pontos
+            num : 4 -- Traz 4 resultados
+        }
+    },
+    { $skip : 1} -- Pula o primeiro resultado
+])
+
+-- CRIANDO INDICE DE BUSCA --
+-- Cria um indice para localizacao considerando ela uma esfera 2d.
+db.alunos.creatIndex({
+    "localizacao" : "2dsphere"
+})
