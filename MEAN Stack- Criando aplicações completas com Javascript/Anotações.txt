@@ -1,0 +1,1 @@
+Consign é um modulo do node que carrega todas as rotas.
