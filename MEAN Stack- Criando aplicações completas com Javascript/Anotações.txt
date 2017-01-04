@@ -1,1 +1,3 @@
-Consign é um modulo do node que carrega todas as rotas.
+Consign é um modulo do node que carrega todas as rotas.,
+
+Quando compilamos um modelo fornecendo seu nome, o Mongoose adotará por padrão como nome da collection o nome do modelo no plural.
