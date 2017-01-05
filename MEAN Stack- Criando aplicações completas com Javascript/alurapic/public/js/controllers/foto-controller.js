@@ -14,7 +14,6 @@ angular.module('alurapic')
 		}
 
 		$scope.submeter = function() {
-
 			if ($scope.formulario.$valid) {
 				cadastroDeFotos.cadastrar($scope.foto)
 				.then(function(dados) {

@@ -1,16 +1,18 @@
-//Module de configuração do Express
 var express = require('express');
-var app = express();
 var consign = require('consign');
 var bodyParser = require('body-parser');
+var path = require('path');
 
+var app = express();
+
+app.set('secret', 'homemavestruz'); 
 app.use(express.static('./public'));
-
 app.use(bodyParser.json());
 
-consign({ cwd: 'app' })
+consign({cwd: 'app'})
     .include('models')
     .then('api')
+    .then('routes/auth.js')
     .then('routes')
     .into(app);
 

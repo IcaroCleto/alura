@@ -1,24 +1,28 @@
 module.exports = function(uri) {
-    var mongoose = require('mongoose');
 
-    mongoose.connect('mongodb://' + uri);
+	var mongoose = require('mongoose');
 
-    mongoose.connection.on('connected', function() {
-        console.log('Conectado ao MongoDB');
-    });
+	mongoose.connect(uri);
 
-    mongoose.connection.on('error', function() {
-        console.log('Erro na conexão: ' + error);
-    });
+	mongoose.connection.on('connected', function() {
+		console.log('Conectado ao MongoDB')
+	});
 
-    mongoose.connection.on('disconnected', function() {
-        console.log('Desconectado do MongoDB');
-    });
+	mongoose.connection.on('error', function(error) {
+		console.log('Erro na conexão: ' + error);
+	});	
 
-    process.on('SIGINT', function() { // Evento de finalização da aplicação
-        mongoose.connection.close(function() {
-            console.log('Conexão fechada pelo termino da aplicação');
-            process.exit(0); //Indica que foi terminado e não foi um erro.
-        });
-    });
+	mongoose.connection.on('disconnected', function() {
+		console.log('Desconectado do MongoDB')
+	});
+
+	process.on('SIGINT', function() {
+		mongoose.connection.close(function() {
+			console.log('Aplicação terminada, conexão fechada')
+			process.exit(0);
+		});
+		
+	})
 };
+
+

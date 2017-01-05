@@ -32,7 +32,7 @@ angular.module('meusServicos', ['ngResource'])
 							inclusao: true
 						});
 					}, function(erro) {
-						console.log(erro);
+						alert('Não Resolveu');
 						reject({
 							mensagem: 'Não foi possível incluir a foto ' + foto.titulo
 						});

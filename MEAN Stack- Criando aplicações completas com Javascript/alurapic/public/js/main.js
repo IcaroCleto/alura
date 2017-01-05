@@ -1,6 +1,9 @@
 angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResource', 'meusServicos'])
-	.config(function($routeProvider, $locationProvider) {
+	.config(function($routeProvider, $locationProvider, $httpProvider) {
 
+
+		$httpProvider.interceptors.push('tokenInterceptor');
+		
 		$routeProvider.when('/fotos', {
 			templateUrl: 'partials/principal.html',
 			controller: 'FotosController'
@@ -15,6 +18,12 @@ angular.module('alurapic', ['minhasDiretivas','ngAnimate', 'ngRoute', 'ngResourc
 			templateUrl: 'partials/foto.html',
 			controller: 'FotoController'
 		});
+
+		$routeProvider.when('/login', {
+            templateUrl: 'partials/login.html',
+            controller: 'LoginController'
+        });
+
 
 		$routeProvider.otherwise({redirectTo: '/fotos'});
 
