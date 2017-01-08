@@ -4,6 +4,12 @@ FROM ubuntu
 # FAÇA ESSE COMANDO
 RUN apt-get update && apt-get install -y apache2
 
+# COPIA TODOS OS ARQUIVOS DENTRO DO DIRETORIO APP E ENVIA PARA O CONTAINER DENTRO DA PASTA DO APACHE /var/www/html
+ADD app/ /var/www/html
+
+# COPIA TODOS OS ARQUIVOS INCLUSIVE A PASTA app.
+COPY app/ /var/www/html/app
+
 # USE A PORTA 8080
 EXPOSE 8080
 

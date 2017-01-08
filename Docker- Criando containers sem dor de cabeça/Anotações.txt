@@ -1,3 +1,15 @@
+Docker: Ferramenta criada para containerização.
+No docker é possivel se conectar em um container a partir de outro container.
+Docker compose é uma ferramenta de complemento que vem dentro do docker.
+
+Camadas do docker:
+Kernel: Sistema Operacional base.
+
+CRGROUPS e Namespaces: Responsaveis por isolar e controlar os recursos que cada container vai utilizar durante sua existência.
+LAYER FS: Sistema gerenciador de camadas para construção das imagens.
+LXC ou Libcontainer: Interface controladora de containers.
+Docker.
+
 docker run nome_da_imagem = Inicia o container com a imagem desejada.
 
 docker pull nome_da_imagem: Faz o download de uma imagem.
@@ -9,10 +21,12 @@ docker ps -a: Lista todos os containers, mesmo os que não estão sendo executados
 
 docker exec -i -t nome_do_container comando:  Executa o comando dentro do container escolhido.
 -i interatividade.
--t Usar o tty do shell do nosso container
+-t Usar o tty do shell do nosso container.
 -d Container em background, não tera nenhuma interatividade com ele.
 -p Configura a porta do container.
 --rm Quando sair do container o container será excluido. Conceito de containers descartaveis.
+-v $(nome_do_diretorio_a_ser_copiado):/nome_do_diretorio_dentro_do_container Cria um volume dentro do container, onde os dados salvos dentro dele 
+também são salvos fora dele, ou seja persistindo os dados.
 
 docker rm nome_ou_id_do_container: Remove um container usando o nome ou id.
 
@@ -28,6 +42,12 @@ docker exec: É possivel fazer comandos enquanto o container está rodando.
 
 docker kill: Elimina um container. OBS: Ele fica como Exited (137).
 
-docker commit nome_do_container nome_da_imagem/nome_da_imagem_personalizada: Monta uma imagem com o apache instalado  
+docker commit nome_do_container nome_da_imagem/nome_da_imagem_personalizada: Monta uma imagem com o apache instalado.
 
-docker build -t nome_da_imagem/algo . (OBS: O ponto final representa que o Dockerfile está no diretório atual): Utiliza o arquivo dockerfile.
+docker inspect nome_do_container: Lista tudo relacionado a um container.
+
+docker build -t nome_da_imagem/algo nome_do_diretorio: Utiliza o arquivo dockerfile. (OBS: O ponto final representa que o Dockerfile está no diretório atual) 
+
+docker-compase up: Executa o arquivo docker-compose.yml.
+
+docker-compose ps: Lista os containers criados pelo docker-compose.

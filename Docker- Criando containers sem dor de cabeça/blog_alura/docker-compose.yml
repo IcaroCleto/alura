@@ -1,0 +1,17 @@
+# CRIANDO UM CONTAINER COM O NOME db, BASEADO NA IMAGEM mysql, CRIANDO UM VOLUME PARA COPIAR OS ARQUIVOS DO DIRETORIO blog_alura PARA DENTRO DO CONTAINER NO DIRETORIO mysql E SETANDO NO ENVIRONMENT A VARIAVEL DE AMBIENTE mysql_root_password.
+db:
+    image: mysql
+    volumes: 
+        - C:\Projetos\alura\Docker- Criando containers sem dor de cabeça\blog_alura/:/var/lib/mysql/
+    environment: 
+        - MYSQL_ROOT_PASSWORD=test123
+
+# CRIANDO UM CONTAINER COM O NOME blog, BASEADE NA IMAGEM wordpress, INFORMANDO NO ENVIRONMENT A SENHA DO MYSQL NA VARIVEL DE AMBIANTE wordpress_db_password,LINKANDO COM O CONTAINER db E SETANDO AS PORTAS 80:80;
+blog: 
+    image: wordpress
+    environment:
+        - WORDPRESS_DB_PASSWORD=test123
+    links: 
+        - db:mysql
+    ports: 
+        - 80:80
